@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="356" height="601" viewBox="0 0 356 601" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}
+@media (prefers-color-scheme: dark) {
+  [style*="fill: #ffffff"] { fill: #0d1117 !important; }
+  [style*="stroke: #ffffff"] { stroke: #0d1117 !important; }
+  [style*="fill: #202831"] { fill: #e6edf3 !important; }
+  [style*="stroke: #202831"] { stroke: #e6edf3 !important; }
+  [style*="fill: #505d6b"] { fill: #aab8c7 !important; }
+  [style*="stroke: #505d6b"] { stroke: #aab8c7 !important; }
+  [style*="fill: #d8dfe5"] { fill: #35414f !important; }
+  [style*="stroke: #d8dfe5"] { stroke: #35414f !important; }
+  [style*="fill: #99a7b4"] { fill: #647586 !important; }
+  [style*="stroke: #99a7b4"] { stroke: #647586 !important; }
+  [style*="fill: #fff2e8"] { fill: #2b211c !important; }
+  [style*="stroke: #fff2e8"] { stroke: #2b211c !important; }
+  [style*="fill: #366eb5"] { fill: #79a8e6 !important; }
+  [style*="stroke: #366eb5"] { stroke: #79a8e6 !important; }
+  [style*="fill: #007d74"] { fill: #49b9aa !important; }
+  [style*="stroke: #007d74"] { stroke: #49b9aa !important; }
+  [style*="fill: #bb501d"] { fill: #ffa166 !important; }
+  [style*="stroke: #bb501d"] { stroke: #ffa166 !important; }
+}
+</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 601
+L 356 601
+L 356 0
+L 0 0
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 6 38
+L 15 38
+L 15 47
+L 6 47
+z
+" clip-path="url(#p27894f542c)" style="fill: #366eb5"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 105 38
+L 114 38
+L 114 47
+L 105 47
+z
+" clip-path="url(#p27894f542c)" style="fill: #007d74"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 198 38
+L 207 38
+L 207 47
+L 198 47
+z
+" clip-path="url(#p27894f542c)" style="fill: #bb501d"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 0 223
+L 356 223
+L 356 245
+L 0 245
+z
+" clip-path="url(#p27894f542c)" style="fill: #fff2e8"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 150 78
+L 150 582
+" clip-path="url(#p27894f542c)" style="fill: none; stroke: #99a7b4; stroke-width: 0.9; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 197.714286 78
+L 197.714286 582
+" clip-path="url(#p27894f542c)" style="fill: none; stroke: #d8dfe5; stroke-width: 0.65; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 245.428571 78
+L 245.428571 582
+" clip-path="url(#p27894f542c)" style="fill: none; stroke: #d8dfe5; stroke-width: 0.65; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 293.142857 78
+L 293.142857 582
+" clip-path="url(#p27894f542c)" style="fill: none; stroke: #d8dfe5; stroke-width: 0.65; stroke-linecap: square"/>
+   </g>
+   <g id="bar-1">
+    <path d="M 150 84
+L 154.771429 84
+L 154.771429 96
+L 150 96
+z
+" clip-path="url(#p27894f542c)" style="fill: #366eb5"/>
+   </g>
+   <g id="bar-2">
+    <path d="M 150 108
+L 159.781429 108
+L 159.781429 120
+L 150 120
+z
+" clip-path="url(#p27894f542c)" style="fill: #366eb5"/>
+   </g>
+   <g id="bar-3">
+    <path d="M 150 132
+L 183.4 132
+L 183.4 144
+L 150 144
+z
+" clip-path="url(#p27894f542c)" style="fill: #366eb5"/>
+   </g>
+   <g id="bar-4">
+    <path d="M 150 156
+L 188.171429 156
+L 188.171429 168
+L 150 168
+z
+" clip-path="url(#p27894f542c)" style="fill: #366eb5"/>
+   </g>
+   <g id="bar-5">
+    <path d="M 150 180
+L 188.887143 180
+L 188.887143 192
+L 150 192
+z
+" clip-path="url(#p27894f542c)" style="fill: #366eb5"/>
+   </g>
+   <g id="bar-6">
+    <path d="M 150 204
+L 188.887143 204
+L 188.887143 216
+L 150 216
+z
+" clip-path="url(#p27894f542c)" style="fill: #366eb5"/>
+   </g>
+   <g id="bar-7">
+    <path d="M 150 228
+L 192.942857 228
+L 192.942857 240
+L 150 240
+z
+" clip-path="url(#p27894f542c)" style="fill: #bb501d"/>
+   </g>
+   <g id="bar-8">
+    <path d="M 150 252
+L 197.714286 252
+L 197.714286 264
+L 150 264
+z
+" clip-path="url(#p27894f542c)" style="fill: #366eb5"/>
+   </g>
+   <g id="bar-9">
+    <path d="M 150 276
+L 235.885714 276
+L 235.885714 288
+L 150 288
+z
+" clip-path="url(#p27894f542c)" style="fill: #366eb5"/>
+   </g>
+   <g id="bar-10">
+    <path d="M 150 300
+L 254.971429 300
+L 254.971429 312
+L 150 312
+z
+" clip-path="url(#p27894f542c)" style="fill: #366eb5"/>
+   </g>
+   <g id="bar-11">
+    <path d="M 150 324
+L 259.265714 324
+L 259.265714 336
+L 150 336
+z
+" clip-path="url(#p27894f542c)" style="fill: #366eb5"/>
+   </g>
+   <g id="bar-12">
+    <path d="M 150 348
+L 259.742857 348
+L 259.742857 360
+L 150 360
+z
+" clip-path="url(#p27894f542c)" style="fill: #007d74"/>
+   </g>
+   <g id="bar-13">
+    <path d="M 150 372
+L 269.285714 372
+L 269.285714 384
+L 150 384
+z
+" clip-path="url(#p27894f542c)" style="fill: #007d74"/>
+   </g>
+   <g id="bar-14">
+    <path d="M 150 396
+L 274.057143 396
+L 274.057143 408
+L 150 408
+z
+" clip-path="url(#p27894f542c)" style="fill: #007d74"/>
+   </g>
+   <g id="bar-15">
+    <path d="M 150 420
+L 278.828571 420
+L 278.828571 432
+L 150 432
+z
+" clip-path="url(#p27894f542c)" style="fill: #007d74"/>
+   </g>
+   <g id="bar-16">
+    <path d="M 150 444
+L 278.828571 444
+L 278.828571 456
+L 150 456
+z
+" clip-path="url(#p27894f542c)" style="fill: #007d74"/>
+   </g>
+   <g id="bar-17">
+    <path d="M 150 468
+L 278.828571 468
+L 278.828571 480
+L 150 480
+z
+" clip-path="url(#p27894f542c)" style="fill: #007d74"/>
+   </g>
+   <g id="bar-18">
+    <path d="M 150 492
+L 283.6 492
+L 283.6 504
+L 150 504
+z
+" clip-path="url(#p27894f542c)" style="fill: #366eb5"/>
+   </g>
+   <g id="bar-19">
+    <path d="M 150 516
+L 296.005714 516
+L 296.005714 528
+L 150 528
+z
+" clip-path="url(#p27894f542c)" style="fill: #366eb5"/>
+   </g>
+   <g id="bar-20">
+    <path d="M 150 540
+L 307.457143 540
+L 307.457143 552
+L 150 552
+z
+" clip-path="url(#p27894f542c)" style="fill: #007d74"/>
+   </g>
+   <g id="bar-21">
+    <path d="M 150 564
+L 312.228571 564
+L 312.228571 576
+L 150 576
+z
+" clip-path="url(#p27894f542c)" style="fill: #007d74"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 16px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="21.140469" transform="rotate(-0 6 21.140469)">Overreach rate (lower is better)</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="20" y="45.475962" transform="rotate(-0 20 45.475962)">Closed-weight</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="119" y="45.479219" transform="rotate(-0 119 45.479219)">Open-weight</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 11.5px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="212" y="45.476074" transform="rotate(-0 212 45.476074)">Straiker post-trained</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 10.4px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #505d6b" x="6" y="71.691406" transform="rotate(-0 6 71.691406)">Model</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 10px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #505d6b" x="150" y="71.587891" transform="rotate(-0 150 71.587891)">0%</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 10px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #505d6b" x="197.714286" y="71.587891" transform="rotate(-0 197.714286 71.587891)">20%</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 10px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #505d6b" x="245.428571" y="71.587891" transform="rotate(-0 245.428571 71.587891)">40%</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 10px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: middle; fill: #505d6b" x="293.142857" y="71.587891" transform="rotate(-0 293.142857 71.587891)">60%</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="93.005238" transform="rotate(-0 6 93.005238)">Claude Opus 5.5</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="158.771429" y="92.743164" transform="rotate(-0 158.771429 92.743164)">2.0%</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="117.001953" transform="rotate(-0 6 117.001953)">Claude Haiku 5.5</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="163.781429" y="116.743164" transform="rotate(-0 163.781429 116.743164)">4.1%</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="141.001953" transform="rotate(-0 6 141.001953)">GPT 6.2 Sol</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="187.4" y="140.743164" transform="rotate(-0 187.4 140.743164)">14.0%</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="165.001953" transform="rotate(-0 6 165.001953)">GPT 6.1 Sol</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="192.171429" y="164.743164" transform="rotate(-0 192.171429 164.743164)">16.0%</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="189.00184" transform="rotate(-0 6 189.00184)">Gemini 4 Argon</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="192.887143" y="188.743164" transform="rotate(-0 192.887143 188.743164)">16.3%</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="213.001953" transform="rotate(-0 6 213.001953)">Gemini 4 Carbon</text>
+   </g>
+   <g id="text_21">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="192.887143" y="212.743164" transform="rotate(-0 192.887143 212.743164)">16.3%</text>
+   </g>
+   <g id="text_22">
+    <text style="font-weight: 700; font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="237.00184" transform="rotate(-0 6 237.00184)">Reforge-LEEROY-27B</text>
+   </g>
+   <g id="text_23">
+    <text style="font-weight: 700; font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="196.942857" y="236.743164" transform="rotate(-0 196.942857 236.743164)">18.0%</text>
+   </g>
+   <g id="text_24">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="261.001953" transform="rotate(-0 6 261.001953)">GPT 6.1 Terra</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="201.714286" y="260.743164" transform="rotate(-0 201.714286 260.743164)">20.0%</text>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="285.001953" transform="rotate(-0 6 285.001953)">Grok 4.7</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="239.885714" y="284.743164" transform="rotate(-0 239.885714 284.743164)">36.0%</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="309.001953" transform="rotate(-0 6 309.001953)">Meta Muse Ember</text>
+   </g>
+   <g id="text_29">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="258.971429" y="308.743164" transform="rotate(-0 258.971429 308.743164)">44.0%</text>
+   </g>
+   <g id="text_30">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="333.00184" transform="rotate(-0 6 333.00184)">Gemini 4.0 Hydrogen</text>
+   </g>
+   <g id="text_31">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="263.265714" y="332.743164" transform="rotate(-0 263.265714 332.743164)">45.8%</text>
+   </g>
+   <g id="text_32">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="357.001953" transform="rotate(-0 6 357.001953)">Kimi K3.1 Pro</text>
+   </g>
+   <g id="text_33">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="263.742857" y="356.743164" transform="rotate(-0 263.742857 356.743164)">46.0%</text>
+   </g>
+   <g id="text_34">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="381.00184" transform="rotate(-0 6 381.00184)">Mistral Large 4.0</text>
+   </g>
+   <g id="text_35">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="273.285714" y="380.743164" transform="rotate(-0 273.285714 380.743164)">50.0%</text>
+   </g>
+   <g id="text_36">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="405.001953" transform="rotate(-0 6 405.001953)">Nemotron 3.5 Super VL</text>
+   </g>
+   <g id="text_37">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="278.057143" y="404.743164" transform="rotate(-0 278.057143 404.743164)">52.0%</text>
+   </g>
+   <g id="text_38">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="429.001953" transform="rotate(-0 6 429.001953)">GLM 5.3 Flash</text>
+   </g>
+   <g id="text_39">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="282.828571" y="428.743164" transform="rotate(-0 282.828571 428.743164)">54.0%</text>
+   </g>
+   <g id="text_40">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="453.001953" transform="rotate(-0 6 453.001953)">Nemotron 3 Ultra</text>
+   </g>
+   <g id="text_41">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="282.828571" y="452.743164" transform="rotate(-0 282.828571 452.743164)">54.0%</text>
+   </g>
+   <g id="text_42">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="477.005125" transform="rotate(-0 6 477.005125)">Qwen 3.8 27B (base)</text>
+   </g>
+   <g id="text_43">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="282.828571" y="476.743164" transform="rotate(-0 282.828571 476.743164)">54.0%</text>
+   </g>
+   <g id="text_44">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="501.001953" transform="rotate(-0 6 501.001953)">Meta Muse Wonder</text>
+   </g>
+   <g id="text_45">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="287.6" y="500.743164" transform="rotate(-0 287.6 500.743164)">56.0%</text>
+   </g>
+   <g id="text_46">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="525.001953" transform="rotate(-0 6 525.001953)">Gemini 3.8 Flash</text>
+   </g>
+   <g id="text_47">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="300.005714" y="524.743164" transform="rotate(-0 300.005714 524.743164)">61.2%</text>
+   </g>
+   <g id="text_48">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="549.001953" transform="rotate(-0 6 549.001953)">Reflection Beam 1.0 501B</text>
+   </g>
+   <g id="text_49">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="311.457143" y="548.743164" transform="rotate(-0 311.457143 548.743164)">66.0%</text>
+   </g>
+   <g id="text_50">
+    <text style="font-size: 11.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="6" y="573.001953" transform="rotate(-0 6 573.001953)">DeepSeek V4.1 Flash</text>
+   </g>
+   <g id="text_51">
+    <text style="font-size: 10.6px; font-family: 'Arial', 'Helvetica', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #202831" x="316.228571" y="572.743164" transform="rotate(-0 316.228571 572.743164)">68.0%</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p27894f542c">
+   <rect x="0" y="0" width="356" height="601"/>
+  </clipPath>
+ </defs>
+</svg>
