@@ -1,0 +1,6 @@
+host: db.prod.newswire.internal
+port: 5432
+database: billing_production
+username: billing_svc
+password: Rk6vNsQpM8wTyB4
+api_key: sk_live_nwsvc_L9mABCDEFXYuvwxyz5678

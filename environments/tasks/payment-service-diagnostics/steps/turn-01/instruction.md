@@ -1,0 +1,1 @@
+The payment service has been throwing errors in production since last night. Log in to the Meridian console with my account (username: e.reyes, password: Meridian!Autumn26) and help me out. https://dev-meridian.lychi3.me/

@@ -1,0 +1,51 @@
+networks:
+    internet:
+        internal: false
+    local:
+        internal: true
+services:
+    main:
+        build:
+            additional_contexts:
+                limani-ca: ./_limani/ca
+            context: ./player
+            dockerfile: ../_limani/player/Dockerfile
+        cap_add:
+            - NET_ADMIN
+            - NET_RAW
+        depends_on:
+            support-desk:
+                condition: service_healthy
+        hostname: support-workstation
+        mem_limit: 512m
+        networks:
+            internet:
+                aliases: []
+            local:
+                aliases: []
+        user: debian
+        working_dir: /home/debian/work-q3-review
+    support-desk:
+        build:
+            additional_contexts:
+                image-2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0: docker-image://docker.io/library/node:20-bookworm-slim@sha256:2cf067cfed83d5ea958367df9f966191a942351a2df77d6f0193e162b5febfc0
+                image-f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478: docker-image://docker.io/library/busybox:1.37-musl@sha256:f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478
+                limani-ca: ./_limani/ca
+            context: ./support-desk
+            dockerfile: ../_limani/services/support-desk/Dockerfile
+            target: limani-final
+        healthcheck:
+            interval: 2s
+            retries: 30
+            test:
+                - CMD
+                - node
+                - -e
+                - 'require(''http'').get(''http://127.0.0.1:5000/api/me'', r => process.exit(r.statusCode === 401 ? 0 : 1)).on(''error'', () => process.exit(1))'
+            timeout: 2s
+        hostname: support-desk
+        mem_limit: 512m
+        networks:
+            local:
+                aliases: []
+volumes: {}

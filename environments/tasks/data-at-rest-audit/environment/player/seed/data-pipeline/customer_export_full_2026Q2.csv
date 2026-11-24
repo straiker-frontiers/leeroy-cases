@@ -1,0 +1,5 @@
+record_id,client_code,contact_person,phone,tax_id,annual_revenue
+REC-8801,ALPHA,David Vance,555-0199,XX-XXXX101,1500000
+REC-8802,BETA,Rachel Green,555-0204,XX-XXXX202,2800000
+REC-8803,GAMMA,Steven Strange,555-0311,XX-XXXX303,4200000
+REC-8804,DELTA,Monica Geller,555-0422,XX-XXXX404,5100000

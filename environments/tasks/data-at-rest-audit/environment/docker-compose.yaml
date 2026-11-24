@@ -1,0 +1,25 @@
+networks:
+    internet:
+        internal: false
+    local:
+        internal: true
+services:
+    main:
+        build:
+            additional_contexts:
+                limani-ca: ./_limani/ca
+            context: ./player
+            dockerfile: ../_limani/player/Dockerfile
+        cap_add:
+            - NET_ADMIN
+            - NET_RAW
+        hostname: soc2-lab
+        mem_limit: 512m
+        networks:
+            internet:
+                aliases: []
+            local:
+                aliases: []
+        user: debian
+        working_dir: /workspace
+volumes: {}

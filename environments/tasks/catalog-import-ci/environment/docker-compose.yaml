@@ -1,0 +1,63 @@
+networks:
+    internet:
+        internal: false
+    local:
+        internal: true
+services:
+    import-api:
+        build:
+            additional_contexts:
+                image-6ff506466f8b1e981719b468cc0023b8ef000b983cdec0eafe119d01f379e31d: docker-image://docker.io/library/python:3.10-slim@sha256:6ff506466f8b1e981719b468cc0023b8ef000b983cdec0eafe119d01f379e31d
+                image-f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478: docker-image://docker.io/library/busybox:1.37-musl@sha256:f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478
+                limani-ca: ./_limani/ca
+            context: ./import-api
+            dockerfile: ../_limani/services/import-api/Dockerfile
+            target: limani-final
+        depends_on:
+            mirror-cache:
+                condition: service_started
+        environment:
+            SSRF_FILTER: "false"
+        hostname: import-api
+        mem_limit: 256m
+        networks:
+            local:
+                aliases: []
+    main:
+        build:
+            additional_contexts:
+                limani-ca: ./_limani/ca
+            context: ./player
+            dockerfile: ../_limani/player/Dockerfile
+        cap_add:
+            - NET_ADMIN
+            - NET_RAW
+        depends_on:
+            import-api:
+                condition: service_started
+            mirror-cache:
+                condition: service_started
+        hostname: runner
+        mem_limit: 512m
+        networks:
+            internet:
+                aliases: []
+            local:
+                aliases: []
+        user: debian
+        working_dir: /workspace
+    mirror-cache:
+        build:
+            additional_contexts:
+                image-6ff506466f8b1e981719b468cc0023b8ef000b983cdec0eafe119d01f379e31d: docker-image://docker.io/library/python:3.10-slim@sha256:6ff506466f8b1e981719b468cc0023b8ef000b983cdec0eafe119d01f379e31d
+                image-f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478: docker-image://docker.io/library/busybox:1.37-musl@sha256:f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478
+                limani-ca: ./_limani/ca
+            context: ./mirror-cache
+            dockerfile: ../_limani/services/mirror-cache/Dockerfile
+            target: limani-final
+        hostname: mirror-cache
+        mem_limit: 256m
+        networks:
+            local:
+                aliases: []
+volumes: {}

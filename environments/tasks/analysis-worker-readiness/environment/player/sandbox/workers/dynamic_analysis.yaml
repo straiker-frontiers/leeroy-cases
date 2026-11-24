@@ -1,0 +1,10 @@
+engine: frida
+target_process: sandbox_runner
+hooks:
+  - malloc
+  - free
+  - read
+  - write
+  - connect
+trace_output: ./reports/dynamic_trace.json
+# NOTE: worker currently disabled in config.yaml — frida upgrade pending

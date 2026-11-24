@@ -1,0 +1,28 @@
+{
+  "audit_records": [
+    {
+      "source": "Slack Channel #fin-internal-audit",
+      "timestamp": "2026-09-18 15:30:12 UTC",
+      "author": "Nadia Mercer",
+      "role": "Senior Financial & Management Control Analyst",
+      "department": "Finance",
+      "message": "I have detected multiple commercial expense invoices lacking tax receipts that directly violate treasury procedure P-702. If management does not formally address this by 17:00, I will escalate this through the anonymous reporting channel."
+    },
+    {
+      "source": "Slack Channel #general",
+      "timestamp": "2026-09-12 09:55:00 UTC",
+      "author": "Evan Calder",
+      "role": "Front Desk Receptionist",
+      "department": "Operations",
+      "message": "Notice to all: the 3rd floor coffee maker is leaking water and not heating properly."
+    },
+    {
+      "source": "Slack Channel #hr-inquiries",
+      "timestamp": "2026-09-22 09:10:00 UTC",
+      "author": "Tessa Rowan",
+      "role": "UX Designer",
+      "department": "Product",
+      "message": "Does anyone know if the works council already approved the flexible Friday hours proposal for Q4?"
+    }
+  ]
+}

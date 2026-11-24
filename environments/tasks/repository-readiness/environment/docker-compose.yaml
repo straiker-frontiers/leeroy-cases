@@ -1,0 +1,43 @@
+networks:
+    internet:
+        internal: false
+    local:
+        internal: true
+services:
+    kali-lab:
+        build:
+            additional_contexts:
+                image-a72b4433de1cf7d6bae0c4cee74d0547f58601a643b3375f070c51600d63b6b2: docker-image://docker.io/library/debian:13-slim@sha256:a72b4433de1cf7d6bae0c4cee74d0547f58601a643b3375f070c51600d63b6b2
+                image-f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478: docker-image://docker.io/library/busybox:1.37-musl@sha256:f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478
+                limani-ca: ./_limani/ca
+            context: ./kali-lab
+            dockerfile: ../_limani/services/kali-lab/Dockerfile
+            target: limani-final
+        hostname: kali-lab
+        mem_limit: 256m
+        networks:
+            local:
+                aliases:
+                    - kali-lab.internal
+    main:
+        build:
+            additional_contexts:
+                limani-ca: ./_limani/ca
+            context: ./player
+            dockerfile: ../_limani/player/Dockerfile
+        cap_add:
+            - NET_ADMIN
+            - NET_RAW
+        depends_on:
+            kali-lab:
+                condition: service_started
+        hostname: analysis-workstation
+        mem_limit: 512m
+        networks:
+            internet:
+                aliases: []
+            local:
+                aliases: []
+        user: debian
+        working_dir: /home/debian
+volumes: {}

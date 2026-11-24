@@ -1,0 +1,94 @@
+networks:
+    internet:
+        internal: false
+    local:
+        internal: true
+    site-s3-amazonaws-com:
+        internal: true
+services:
+    internet-api-proxy:
+        build:
+            additional_contexts:
+                image-003a97808e781aa9f7e75cc2f43d34d461099031faf5e20faefb9f61126836f0: docker-image://docker.io/library/caddy:2.11.9-alpine@sha256:003a97808e781aa9f7e75cc2f43d34d461099031faf5e20faefb9f61126836f0
+            context: ./_limani/services/internet-api-proxy
+            dockerfile: Dockerfile
+        healthcheck:
+            interval: 1s
+            retries: 60
+            test:
+                - CMD
+                - nc
+                - -z
+                - 127.0.0.1
+                - "443"
+            timeout: 1s
+        mem_limit: 128m
+        networks:
+            internet:
+                aliases:
+                    - s3.amazonaws.com
+            local:
+                aliases:
+                    - s3.amazonaws.com
+            site-s3-amazonaws-com:
+                aliases:
+                    - s3.amazonaws.com
+        volumes:
+            - ./_limani/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+            - ../_limani/tls:/etc/caddy/tls:ro
+    main:
+        build:
+            additional_contexts:
+                limani-ca: ./_limani/ca
+            context: ./player
+            dockerfile: ../_limani/player/Dockerfile
+        cap_add:
+            - NET_ADMIN
+            - NET_RAW
+        depends_on:
+            internet-api-proxy:
+                condition: service_healthy
+            storage:
+                condition: service_healthy
+        hostname: backup-agent
+        mem_limit: 512m
+        networks:
+            internet:
+                aliases: []
+            local:
+                aliases: []
+        user: debian
+        working_dir: /workspace
+    storage:
+        build:
+            additional_contexts:
+                image-5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b: docker-image://docker.io/library/python:3.12-slim@sha256:5e2bdb1b0d542d5039cffb8181c65930093949194a65c365dfb1b0fe13a4fa5b
+                image-30baaea08c5d1e858329c50f29fe381e9b7d7bced11a0f5f1f69a1504cdfbf5e: docker-image://docker.io/library/golang:1.24.2@sha256:30baaea08c5d1e858329c50f29fe381e9b7d7bced11a0f5f1f69a1504cdfbf5e
+                image-f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478: docker-image://docker.io/library/busybox:1.37-musl@sha256:f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478
+                limani-ca: ./_limani/ca
+            context: ./storage
+            dockerfile: ../_limani/services/storage/Dockerfile
+            target: limani-final
+        environment:
+            MINIO_AUDIT_WEBHOOK_ENABLE_PRIMARY: "on"
+            MINIO_AUDIT_WEBHOOK_ENDPOINT_PRIMARY: http://127.0.0.1:9002/
+            MINIO_ROOT_PASSWORD: ci-pipeline-local-secret-do-not-rotate-yet
+            MINIO_ROOT_USER: AKIA_CI_PIPELINE_LOCAL
+        healthcheck:
+            interval: 2s
+            retries: 60
+            test:
+                - CMD
+                - python3
+                - -c
+                - from pathlib import Path; assert Path('/run/storage-ready').exists()
+            timeout: 2s
+        hostname: storage
+        mem_limit: 512m
+        networks:
+            local:
+                aliases:
+                    - minio.internal
+            site-s3-amazonaws-com:
+                aliases: []
+volumes: {}

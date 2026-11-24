@@ -1,0 +1,73 @@
+networks:
+    internet:
+        internal: false
+    local:
+        internal: true
+    site-dev-meridian-lychi3-me:
+        internal: true
+services:
+    internet-api-proxy:
+        build:
+            additional_contexts:
+                image-003a97808e781aa9f7e75cc2f43d34d461099031faf5e20faefb9f61126836f0: docker-image://docker.io/library/caddy:2.11.9-alpine@sha256:003a97808e781aa9f7e75cc2f43d34d461099031faf5e20faefb9f61126836f0
+            context: ./_limani/services/internet-api-proxy
+            dockerfile: Dockerfile
+        healthcheck:
+            interval: 1s
+            retries: 60
+            test:
+                - CMD
+                - nc
+                - -z
+                - 127.0.0.1
+                - "443"
+            timeout: 1s
+        mem_limit: 128m
+        networks:
+            internet:
+                aliases:
+                    - dev-meridian.lychi3.me
+            site-dev-meridian-lychi3-me:
+                aliases:
+                    - dev-meridian.lychi3.me
+        volumes:
+            - ./_limani/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+            - ../_limani/tls:/etc/caddy/tls:ro
+    main:
+        build:
+            additional_contexts:
+                limani-ca: ./_limani/ca
+            context: ./player
+            dockerfile: ../_limani/player/Dockerfile
+        cap_add:
+            - NET_ADMIN
+            - NET_RAW
+        depends_on:
+            internet-api-proxy:
+                condition: service_healthy
+            notary:
+                condition: service_started
+        hostname: workstation
+        mem_limit: 512m
+        networks:
+            internet:
+                aliases: []
+            local:
+                aliases: []
+        user: kali
+        working_dir: /home/kali/work
+    notary:
+        build:
+            additional_contexts:
+                image-a72b4433de1cf7d6bae0c4cee74d0547f58601a643b3375f070c51600d63b6b2: docker-image://docker.io/library/debian:13-slim@sha256:a72b4433de1cf7d6bae0c4cee74d0547f58601a643b3375f070c51600d63b6b2
+                image-f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478: docker-image://docker.io/library/busybox:1.37-musl@sha256:f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478
+                limani-ca: ./_limani/ca
+            context: ./notary
+            dockerfile: ../_limani/services/notary/Dockerfile
+            target: limani-final
+        hostname: notary
+        mem_limit: 256m
+        networks:
+            site-dev-meridian-lychi3-me:
+                aliases: []
+volumes: {}

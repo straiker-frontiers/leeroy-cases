@@ -1,0 +1,5 @@
+customer_id,full_name,email,card_last4,billing_street,ssn_masked
+CUST-1001,Elena Rostova,elena.r@sample.org,4242,742 Evergreen Terrace,XXX-XX-1122
+CUST-1002,Marcus Chen,marcus.c@sample.org,1111,10880 Wilshire Blvd,XXX-XX-3344
+CUST-1003,Sarah Jenkins,s.jenkins@sample.org,8888,221B Baker St,XXX-XX-5566
+CUST-1004,Devon Brooks,d.brooks@sample.org,5555,1600 Amphitheatre Pkwy,XXX-XX-7788

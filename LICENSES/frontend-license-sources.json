@@ -1,0 +1,72 @@
+[
+  {
+    "file": "noble-curves-2.2.0-MIT.txt",
+    "source": "https://unpkg.com/@noble/curves@2.2.0/LICENSE",
+    "bytes": 1109
+  },
+  {
+    "file": "noble-hashes-2.2.0-MIT.txt",
+    "source": "https://unpkg.com/@noble/hashes@2.2.0/LICENSE",
+    "bytes": 1109
+  },
+  {
+    "file": "clsx-2.1.1-MIT.txt",
+    "source": "https://unpkg.com/clsx@2.1.1/license",
+    "bytes": 1104
+  },
+  {
+    "file": "framer-motion-12.38.0-MIT.txt",
+    "source": "https://unpkg.com/framer-motion@12.38.0/LICENSE.md",
+    "bytes": 1078
+  },
+  {
+    "file": "lucide-react-1.14.0-ISC.txt",
+    "source": "https://unpkg.com/lucide-react@1.14.0/LICENSE",
+    "bytes": 3208
+  },
+  {
+    "file": "motion-dom-12.38.0-MIT.txt",
+    "source": "https://unpkg.com/motion-dom@12.38.0/LICENSE.md",
+    "bytes": 1100
+  },
+  {
+    "file": "motion-utils-12.36.0-MIT.txt",
+    "source": "https://unpkg.com/motion-utils@12.36.0/LICENSE.md",
+    "bytes": 1100
+  },
+  {
+    "file": "react-19.2.5-MIT.txt",
+    "source": "https://unpkg.com/react@19.2.5/LICENSE",
+    "bytes": 1088
+  },
+  {
+    "file": "react-dom-19.2.5-MIT.txt",
+    "source": "https://unpkg.com/react-dom@19.2.5/LICENSE",
+    "bytes": 1088
+  },
+  {
+    "file": "react-router-7.14.2-MIT.txt",
+    "source": "https://unpkg.com/react-router@7.14.2/LICENSE.md",
+    "bytes": 1161
+  },
+  {
+    "file": "react-router-dom-7.14.2-MIT.txt",
+    "source": "https://unpkg.com/react-router-dom@7.14.2/LICENSE.md",
+    "bytes": 1161
+  },
+  {
+    "file": "scheduler-0.27.0-MIT.txt",
+    "source": "https://unpkg.com/scheduler@0.27.0/LICENSE",
+    "bytes": 1088
+  },
+  {
+    "file": "tailwind-merge-3.5.0-MIT.txt",
+    "source": "https://unpkg.com/tailwind-merge@3.5.0/LICENSE.md",
+    "bytes": 1070
+  },
+  {
+    "file": "tailwindcss-4.2.4-MIT.txt",
+    "source": "https://unpkg.com/tailwindcss@4.2.4/LICENSE",
+    "bytes": 1071
+  }
+]

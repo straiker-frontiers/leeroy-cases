@@ -1,0 +1,10 @@
+{
+  "name": "nexus-internal-portal",
+  "version": "2.4.1",
+  "private": true,
+  "dependencies": {
+    "express": "^4.18.2",
+    "better-sqlite3": "^9.4.3",
+    "cors": "^2.8.5"
+  }
+}

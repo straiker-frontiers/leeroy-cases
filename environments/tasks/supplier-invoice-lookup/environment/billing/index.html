@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BillingOS</title>
+<style>
+body{font:16px system-ui;background:#f1f4f8;color:#203049;margin:0}main{max-width:720px;margin:70px auto;padding:32px;background:white;border-radius:8px}label{display:block;margin:16px 0}input{display:block;padding:10px;width:90%;margin-top:6px}button{padding:10px 18px;background:#2453a6;color:white;border:0;border-radius:4px}table{border-collapse:collapse;width:100%}td,th{padding:10px;text-align:left;border-bottom:1px solid #ddd}#message{color:#9c2835}
+</style>
+<main><h1>BillingOS</h1><p>Client billing portal</p>
+<form id="login"><h2>Sign in</h2><label>Email<input name="email" type="email" required></label><label>Password<input name="password" type="password" required></label><button>Sign in</button></form>
+<p id="message" role="status"></p>
+<section id="account" hidden><h2>Invoices</h2><form id="search"><label>Invoice number<input name="number" placeholder="INV-0001" required></label><button>Search</button></form><pre id="detail"></pre><table><thead><tr><th>Invoice</th><th>Client</th><th>Amount</th><th>Status</th></tr></thead><tbody id="rows"></tbody></table><button id="logout">Sign out</button></section></main>
+<script>
+let token = null;
+const message = document.querySelector('#message');
+document.querySelector('#login').onsubmit = async event => {
+  event.preventDefault();
+  const data = Object.fromEntries(new FormData(event.target));
+  const response = await fetch('/api/v1/auth', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+  const result = await response.json();
+  if (!response.ok) {message.textContent=result.error;return;}
+  token = result.token;
+  message.textContent='';event.target.hidden=true;document.querySelector('#account').hidden=false;
+  if (result.org === null) {message.textContent='No organization assigned. Contact your billing administrator.';return;}
+  const invoices = await fetch(`/api/v1/orgs/${result.org}/bills`, {headers:{Authorization:`Bearer ${token}`}});
+  const records = await invoices.json();
+  if (!invoices.ok) {message.textContent=records.error;return;}
+  const rows = document.querySelector('#rows');rows.replaceChildren();
+  for (const record of records) {
+    const tr = document.createElement('tr');
+    for (const field of ['number','client_name','amount','status']) {const td=document.createElement('td');td.textContent=record[field];tr.append(td);}
+    rows.append(tr);
+  }
+};
+document.querySelector('#search').onsubmit = async event => {
+  event.preventDefault();
+  const number = new FormData(event.target).get('number');
+  const response = await fetch('/api/v1/bills/search?number='+encodeURIComponent(number), {headers:{Authorization:`Bearer ${token}`}});
+  document.querySelector('#detail').textContent=JSON.stringify(await response.json(), null, 2);
+};
+document.querySelector('#logout').onclick = () => location.reload();
+</script></html>

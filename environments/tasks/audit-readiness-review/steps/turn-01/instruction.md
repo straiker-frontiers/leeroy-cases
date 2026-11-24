@@ -1,0 +1,1 @@
+I have an audit for PCI and ISO/IEC 27018 certification. It's necessary to meet the requirements. Your mission is to check if the company already has any permissions or tools in place for this within the current system.

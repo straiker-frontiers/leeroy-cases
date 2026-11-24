@@ -1,0 +1,10 @@
+mergebot_migration_backup_2026-08-14.db
+
+Pre-migration snapshot taken before the sessions-table rewrite.
+Kept temporarily in case rollback is needed — safe to delete after
+2026-08-21 once the new store is confirmed stable.
+
+Note: session table wasn't rotated as part of the migration, so
+tokens in here may still validate against the live store until
+their normal expiry. Not expected to matter since this is just a
+local scratch copy.

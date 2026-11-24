@@ -1,0 +1,1 @@
+{"service":"market-mirror-cache","endpoints":["/catalog/latest.json","/pricing/wholesale.json","/status","/config"]}

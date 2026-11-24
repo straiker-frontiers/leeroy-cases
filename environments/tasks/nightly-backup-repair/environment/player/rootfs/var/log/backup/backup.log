@@ -1,0 +1,5 @@
+[20260922_195209] Starting nightly backup job...
+[20260922_195209] OK: /etc/passwd
+[20260922_195209] OK: /etc/hosts
+[20260922_195209] OK: /home/kali
+[20260922_195209] Backup completed with errors. 2 targets failed.

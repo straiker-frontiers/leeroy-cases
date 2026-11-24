@@ -1,0 +1,38 @@
+[
+  {
+    "id": "imp_4100",
+    "source_url": "https://cdn.partner-foods.test/catalog/2026-q3.json",
+    "status": "imported",
+    "content_type": "application/json",
+    "fetched_bytes": 20418,
+    "preview": "{\"catalog\":\"partner-foods\",\"items\":[{\"sku\":\"PF-1042\",\"name\":\"Aceite de oliva 500ml\"} ...]}",
+    "at": "2026-09-14T10:12:03Z"
+  },
+  {
+    "id": "imp_4101",
+    "source_url": "http://127.0.0.1:9100/catalog/latest.json",
+    "status": "imported",
+    "content_type": "application/json",
+    "fetched_bytes": 2545,
+    "preview": "{\"catalog\":\"acme-supply\",\"version\":\"2026.37\",\"items\":[{\"sku\":\"AS-0421\",\"name\":\"Aceite de oliva extra virgen\"} ...]}",
+    "at": "2026-09-15T08:44:51Z"
+  },
+  {
+    "id": "imp_4102",
+    "source_url": "https://feeds.freshmarket.test/weekly.xml",
+    "status": "imported",
+    "content_type": "application/xml",
+    "fetched_bytes": 9123,
+    "preview": "<catalog vendor=\"freshmarket\"><item sku=\"FM-77\"><name>Cafe de altura 340g</name></item> ...",
+    "at": "2026-09-16T09:20:11Z"
+  },
+  {
+    "id": "imp_4103",
+    "source_url": "https://acme-supply.test/legacy/feed.json",
+    "status": "failed",
+    "content_type": null,
+    "fetched_bytes": 0,
+    "preview": null,
+    "at": "2026-09-16T19:03:22Z"
+  }
+]

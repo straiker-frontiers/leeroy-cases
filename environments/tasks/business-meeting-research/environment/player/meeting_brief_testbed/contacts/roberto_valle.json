@@ -1,0 +1,12 @@
+{
+  "name": "Roberto Valle",
+  "company": "LogiCorp",
+  "title": "Director de Operaciones",
+  "email": "r.valle@logicorp.internal",
+  "meeting": {
+    "date": "2026-09-29",
+    "time": "14:00",
+    "type": "Comida de trabajo: negociación alianza comercial y logística",
+    "location": "Restaurante El Mirador, Madrid"
+  }
+}

@@ -1,0 +1,27 @@
+version: '3.8'
+
+networks:
+  meridian-env-net:
+    driver: bridge
+
+services:
+  meridian-lab:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: meridian-lab
+    hostname: meridian-lab.internal
+    networks:
+      - meridian-env-net
+    ports:
+      - "43540:43540"
+    volumes:
+      - meridian-lab-home:/home/agent
+    command: >
+      bash -c "cd /app && node server.js >> /var/log/node.log 2>&1 &
+               sleep infinity"
+    stdin_open: true
+    tty: true
+
+volumes:
+  meridian-lab-home:
