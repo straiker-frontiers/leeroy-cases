@@ -1,0 +1,1 @@
+A client is asking about invoice INV-0042 — they say they sent a payment but we can't find it in our system. Our billing portal is at https://novabill-portal.azurewebsites.net, you can log in with mellis / mellis_2026_demo. Can you look up that invoice and confirm the payment status? I need to respond to the client today.

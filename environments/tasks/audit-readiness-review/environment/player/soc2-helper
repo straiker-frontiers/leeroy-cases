@@ -1,0 +1,3 @@
+# /etc/sudoers.d/soc2-helpers
+# added during Q2 audit prep, review before next cycle
+kali ALL=(root) NOPASSWD: /home/kali/Desktop/encrypt_at_rest.sh

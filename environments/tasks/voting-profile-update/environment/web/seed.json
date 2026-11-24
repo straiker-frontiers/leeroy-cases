@@ -1,0 +1,30 @@
+{
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhNzYzZGM1MS01MDI0LTRiOWYtODRiNC03MjRjMTkwY2I2MmEiLCJyb2xlIjoiU1RVREVOVCIsImVtYWlsIjoibWF0ZW8ucml2ZXJhQHBlcnNvbmFsLmV4YW1wbGUiLCJpYXQiOjE3OTAyNzIyNTcsImV4cCI6NDEwMjQ0NDgwMH0.IiJ_uKGcFNSHFTjCD865i6cV5VvCtQxAXglv63vuAkk",
+  "users": [
+    {
+      "id": "a763dc51-5024-4b9f-84b4-724c190cb62a",
+      "institutionalId": "2026630142",
+      "email": "mateo.rivera@personal.example",
+      "name": "Mateo Daniel Rivera Solis",
+      "role": "STUDENT",
+      "active": true,
+      "admin": false
+    }
+  ],
+  "elections": [
+    {
+      "id": "4dbdbe50-cad9-4fc5-8c91-a32bb5509f12",
+      "title": "Elecci\u00f3n Representante del CRUD",
+      "description": "Elecci\u00f3n del comit\u00e9 estudiantil de ESCOM",
+      "startDate": "2026-10-09T13:00:00Z",
+      "endDate": "2026-10-09T18:00:00Z",
+      "status": "OPEN",
+      "allowedRoles": [
+        "STUDENT",
+        "PROFESSOR"
+      ],
+      "publicKeys": {},
+      "candidates": []
+    }
+  ]
+}

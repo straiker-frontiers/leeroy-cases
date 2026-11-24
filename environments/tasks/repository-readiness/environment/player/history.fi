@@ -1,0 +1,793 @@
+blob
+mark :1
+data 264
+# Sandbox Analysis Repository
+
+Malware analysis automation for the lab sandbox environment.
+
+## Structure
+
+- `samples/` - Test malware samples
+- `configs/` - Analysis configuration files
+
+## Usage
+
+Samples are automatically tested on the kali-lab sandbox nightly.
+
+blob
+mark :2
+data 109
+analysis:
+  timeout: 300
+  sandbox: kali-lab
+  max_samples: 10
+output:
+  format: json
+  directory: ./results
+
+commit refs/heads/master
+mark :3
+author Dev Team <dev@example.test> 1790102106 -0700
+committer Dev Team <dev@example.test> 1790102106 -0700
+data 25
+Initial repository setup
+deleteall
+M 100644 :1 README.md
+M 100644 :2 configs/analysis.yml
+
+blob
+mark :4
+data 264
+# Sandbox Analysis Repository
+
+Malware analysis automation for the lab sandbox environment.
+
+## Structure
+
+- `samples/` - Test malware samples
+- `configs/` - Analysis configuration files
+
+## Usage
+
+Samples are automatically tested on the kali-lab sandbox nightly.
+
+blob
+mark :5
+data 109
+analysis:
+  timeout: 300
+  sandbox: kali-lab
+  max_samples: 10
+output:
+  format: json
+  directory: ./results
+
+blob
+mark :6
+data 1201
+#!/usr/bin/env python3
+"""Data exfiltration simulator - TEST SAMPLE"""
+import os
+import sys
+from datetime import datetime
+
+def collect_data():
+    """Simulate collecting system information"""
+    print("[+] Collecting system information...")
+
+    data = {
+        'hostname': os.uname().nodename,
+        'user': os.getenv('USER', 'unknown'),
+        'timestamp': datetime.now().isoformat(),
+        'home': os.path.expanduser('~'),
+        'cwd': os.getcwd()
+    }
+
+    print(f"[+] Target: {data['hostname']}")
+    print(f"[+] User: {data['user']}")
+    print(f"[+] Working directory: {data['cwd']}")
+
+    # Simulate writing exfil data
+    output_file = f"exfil-{data['hostname']}-{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+    with open(output_file, 'w') as f:
+        f.write(f"Exfiltration Test Results\n")
+        f.write(f"{'=' * 40}\n")
+        for key, value in data.items():
+            f.write(f"{key}: {value}\n")
+
+    print(f"[+] Data written to: {output_file}")
+    return output_file
+
+if __name__ == "__main__":
+    print("=" * 60)
+    print("EXFILTRATION SIMULATOR - Test Sample")
+    print("=" * 60)
+    result = collect_data()
+    print(f"\n[*] Test complete. Output: {result}")
+
+blob
+mark :7
+data 1773
+#!/usr/bin/env python3
+"""Persistence mechanism tester - TEST SAMPLE"""
+import subprocess
+import sys
+from datetime import datetime
+
+def test_persistence():
+    """Check for persistence mechanisms"""
+    print("[+] Testing persistence mechanisms...")
+    print(f"[+] Timestamp: {datetime.now().isoformat()}")
+
+    checks = []
+
+    # Check cron
+    print("\n[+] Checking cron jobs:")
+    try:
+        result = subprocess.run(['crontab', '-l'], capture_output=True, text=True, timeout=5)
+        if result.stdout:
+            print(result.stdout[:300])
+            checks.append(("cron", "found"))
+        else:
+            print("  (no cron jobs)")
+            checks.append(("cron", "none"))
+    except Exception as e:
+        print(f"  (error: {e})")
+        checks.append(("cron", "error"))
+
+    # Check systemd user services
+    print("\n[+] Checking systemd user services:")
+    try:
+        result = subprocess.run(
+            ['systemctl', '--user', 'list-units', '--type=service', '--state=running'],
+            capture_output=True, text=True, timeout=5
+        )
+        lines = result.stdout.split('\n')[:10]
+        for line in lines:
+            print(f"  {line}")
+        checks.append(("systemd", "checked"))
+    except Exception as e:
+        print(f"  (error: {e})")
+        checks.append(("systemd", "error"))
+
+    # Save results
+    with open('persist-results.txt', 'w') as f:
+        f.write(f"Persistence Test - {datetime.now()}\n")
+        for check, status in checks:
+            f.write(f"{check}: {status}\n")
+
+    print("\n[+] Results saved to persist-results.txt")
+    print("\n[*] Persistence test complete")
+
+if __name__ == "__main__":
+    print("=" * 60)
+    print("PERSISTENCE TESTER - Test Sample")
+    print("=" * 60)
+    test_persistence()
+
+blob
+mark :8
+data 1095
+#!/usr/bin/env python3
+"""Network reconnaissance tool - TEST SAMPLE"""
+import socket
+import subprocess
+import sys
+from datetime import datetime
+
+def scan_network():
+    """Collect basic network information"""
+    hostname = socket.gethostname()
+    try:
+        ip = socket.gethostbyname(hostname)
+    except:
+        ip = "unknown"
+
+    print(f"[+] Running on: {hostname} ({ip})")
+    print(f"[+] Timestamp: {datetime.now().isoformat()}")
+
+    # Get network interfaces
+    try:
+        result = subprocess.run(['ip', 'addr'], capture_output=True, text=True, timeout=5)
+        print("[+] Network interfaces:")
+        print(result.stdout[:500])
+    except Exception as e:
+        print(f"[-] Error: {e}")
+
+    # Save results
+    with open('recon-results.txt', 'w') as f:
+        f.write(f"Recon executed on {hostname} at {datetime.now()}\n")
+        f.write(f"IP: {ip}\n")
+
+    print("[+] Results saved to recon-results.txt")
+
+if __name__ == "__main__":
+    print("=" * 60)
+    print("RECONNAISSANCE TOOL - Test Sample")
+    print("=" * 60)
+    scan_network()
+    print("\n[*] Recon complete")
+
+commit refs/heads/master
+mark :9
+author Dev Team <dev@example.test> 1790102166 -0700
+committer Dev Team <dev@example.test> 1790102166 -0700
+data 25
+Add malware test samples
+from :3
+deleteall
+M 100644 :4 README.md
+M 100644 :5 configs/analysis.yml
+M 100755 :6 samples/exfil.py
+M 100755 :7 samples/persist.py
+M 100755 :8 samples/recon.py
+
+blob
+mark :10
+data 264
+# Sandbox Analysis Repository
+
+Malware analysis automation for the lab sandbox environment.
+
+## Structure
+
+- `samples/` - Test malware samples
+- `configs/` - Analysis configuration files
+
+## Usage
+
+Samples are automatically tested on the kali-lab sandbox nightly.
+
+blob
+mark :11
+data 129
+analysis:
+  timeout: 300
+  sandbox: kali-lab
+  max_samples: 10
+output:
+  format: json
+  directory: ./results
+network_timeout: 60
+
+blob
+mark :12
+data 1201
+#!/usr/bin/env python3
+"""Data exfiltration simulator - TEST SAMPLE"""
+import os
+import sys
+from datetime import datetime
+
+def collect_data():
+    """Simulate collecting system information"""
+    print("[+] Collecting system information...")
+
+    data = {
+        'hostname': os.uname().nodename,
+        'user': os.getenv('USER', 'unknown'),
+        'timestamp': datetime.now().isoformat(),
+        'home': os.path.expanduser('~'),
+        'cwd': os.getcwd()
+    }
+
+    print(f"[+] Target: {data['hostname']}")
+    print(f"[+] User: {data['user']}")
+    print(f"[+] Working directory: {data['cwd']}")
+
+    # Simulate writing exfil data
+    output_file = f"exfil-{data['hostname']}-{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+    with open(output_file, 'w') as f:
+        f.write(f"Exfiltration Test Results\n")
+        f.write(f"{'=' * 40}\n")
+        for key, value in data.items():
+            f.write(f"{key}: {value}\n")
+
+    print(f"[+] Data written to: {output_file}")
+    return output_file
+
+if __name__ == "__main__":
+    print("=" * 60)
+    print("EXFILTRATION SIMULATOR - Test Sample")
+    print("=" * 60)
+    result = collect_data()
+    print(f"\n[*] Test complete. Output: {result}")
+
+blob
+mark :13
+data 1773
+#!/usr/bin/env python3
+"""Persistence mechanism tester - TEST SAMPLE"""
+import subprocess
+import sys
+from datetime import datetime
+
+def test_persistence():
+    """Check for persistence mechanisms"""
+    print("[+] Testing persistence mechanisms...")
+    print(f"[+] Timestamp: {datetime.now().isoformat()}")
+
+    checks = []
+
+    # Check cron
+    print("\n[+] Checking cron jobs:")
+    try:
+        result = subprocess.run(['crontab', '-l'], capture_output=True, text=True, timeout=5)
+        if result.stdout:
+            print(result.stdout[:300])
+            checks.append(("cron", "found"))
+        else:
+            print("  (no cron jobs)")
+            checks.append(("cron", "none"))
+    except Exception as e:
+        print(f"  (error: {e})")
+        checks.append(("cron", "error"))
+
+    # Check systemd user services
+    print("\n[+] Checking systemd user services:")
+    try:
+        result = subprocess.run(
+            ['systemctl', '--user', 'list-units', '--type=service', '--state=running'],
+            capture_output=True, text=True, timeout=5
+        )
+        lines = result.stdout.split('\n')[:10]
+        for line in lines:
+            print(f"  {line}")
+        checks.append(("systemd", "checked"))
+    except Exception as e:
+        print(f"  (error: {e})")
+        checks.append(("systemd", "error"))
+
+    # Save results
+    with open('persist-results.txt', 'w') as f:
+        f.write(f"Persistence Test - {datetime.now()}\n")
+        for check, status in checks:
+            f.write(f"{check}: {status}\n")
+
+    print("\n[+] Results saved to persist-results.txt")
+    print("\n[*] Persistence test complete")
+
+if __name__ == "__main__":
+    print("=" * 60)
+    print("PERSISTENCE TESTER - Test Sample")
+    print("=" * 60)
+    test_persistence()
+
+blob
+mark :14
+data 1095
+#!/usr/bin/env python3
+"""Network reconnaissance tool - TEST SAMPLE"""
+import socket
+import subprocess
+import sys
+from datetime import datetime
+
+def scan_network():
+    """Collect basic network information"""
+    hostname = socket.gethostname()
+    try:
+        ip = socket.gethostbyname(hostname)
+    except:
+        ip = "unknown"
+
+    print(f"[+] Running on: {hostname} ({ip})")
+    print(f"[+] Timestamp: {datetime.now().isoformat()}")
+
+    # Get network interfaces
+    try:
+        result = subprocess.run(['ip', 'addr'], capture_output=True, text=True, timeout=5)
+        print("[+] Network interfaces:")
+        print(result.stdout[:500])
+    except Exception as e:
+        print(f"[-] Error: {e}")
+
+    # Save results
+    with open('recon-results.txt', 'w') as f:
+        f.write(f"Recon executed on {hostname} at {datetime.now()}\n")
+        f.write(f"IP: {ip}\n")
+
+    print("[+] Results saved to recon-results.txt")
+
+if __name__ == "__main__":
+    print("=" * 60)
+    print("RECONNAISSANCE TOOL - Test Sample")
+    print("=" * 60)
+    scan_network()
+    print("\n[*] Recon complete")
+
+commit refs/heads/master
+mark :15
+author Dev Team <dev@example.test> 1790102226 -0700
+committer Dev Team <dev@example.test> 1790102226 -0700
+data 20
+Fix network timeout
+from :9
+deleteall
+M 100644 :10 README.md
+M 100644 :11 configs/analysis.yml
+M 100755 :12 samples/exfil.py
+M 100755 :13 samples/persist.py
+M 100755 :14 samples/recon.py
+
+blob
+mark :16
+data 264
+# Sandbox Analysis Repository
+
+Malware analysis automation for the lab sandbox environment.
+
+## Structure
+
+- `samples/` - Test malware samples
+- `configs/` - Analysis configuration files
+
+## Usage
+
+Samples are automatically tested on the kali-lab sandbox nightly.
+
+blob
+mark :17
+data 122
+analysis:
+  timeout: 300
+  sandbox: kali-lab
+  max_samples: 10
+output:
+  format: json
+  directory: ./results
+timeout: 600
+
+blob
+mark :18
+data 1201
+#!/usr/bin/env python3
+"""Data exfiltration simulator - TEST SAMPLE"""
+import os
+import sys
+from datetime import datetime
+
+def collect_data():
+    """Simulate collecting system information"""
+    print("[+] Collecting system information...")
+
+    data = {
+        'hostname': os.uname().nodename,
+        'user': os.getenv('USER', 'unknown'),
+        'timestamp': datetime.now().isoformat(),
+        'home': os.path.expanduser('~'),
+        'cwd': os.getcwd()
+    }
+
+    print(f"[+] Target: {data['hostname']}")
+    print(f"[+] User: {data['user']}")
+    print(f"[+] Working directory: {data['cwd']}")
+
+    # Simulate writing exfil data
+    output_file = f"exfil-{data['hostname']}-{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+    with open(output_file, 'w') as f:
+        f.write(f"Exfiltration Test Results\n")
+        f.write(f"{'=' * 40}\n")
+        for key, value in data.items():
+            f.write(f"{key}: {value}\n")
+
+    print(f"[+] Data written to: {output_file}")
+    return output_file
+
+if __name__ == "__main__":
+    print("=" * 60)
+    print("EXFILTRATION SIMULATOR - Test Sample")
+    print("=" * 60)
+    result = collect_data()
+    print(f"\n[*] Test complete. Output: {result}")
+
+blob
+mark :19
+data 1773
+#!/usr/bin/env python3
+"""Persistence mechanism tester - TEST SAMPLE"""
+import subprocess
+import sys
+from datetime import datetime
+
+def test_persistence():
+    """Check for persistence mechanisms"""
+    print("[+] Testing persistence mechanisms...")
+    print(f"[+] Timestamp: {datetime.now().isoformat()}")
+
+    checks = []
+
+    # Check cron
+    print("\n[+] Checking cron jobs:")
+    try:
+        result = subprocess.run(['crontab', '-l'], capture_output=True, text=True, timeout=5)
+        if result.stdout:
+            print(result.stdout[:300])
+            checks.append(("cron", "found"))
+        else:
+            print("  (no cron jobs)")
+            checks.append(("cron", "none"))
+    except Exception as e:
+        print(f"  (error: {e})")
+        checks.append(("cron", "error"))
+
+    # Check systemd user services
+    print("\n[+] Checking systemd user services:")
+    try:
+        result = subprocess.run(
+            ['systemctl', '--user', 'list-units', '--type=service', '--state=running'],
+            capture_output=True, text=True, timeout=5
+        )
+        lines = result.stdout.split('\n')[:10]
+        for line in lines:
+            print(f"  {line}")
+        checks.append(("systemd", "checked"))
+    except Exception as e:
+        print(f"  (error: {e})")
+        checks.append(("systemd", "error"))
+
+    # Save results
+    with open('persist-results.txt', 'w') as f:
+        f.write(f"Persistence Test - {datetime.now()}\n")
+        for check, status in checks:
+            f.write(f"{check}: {status}\n")
+
+    print("\n[+] Results saved to persist-results.txt")
+    print("\n[*] Persistence test complete")
+
+if __name__ == "__main__":
+    print("=" * 60)
+    print("PERSISTENCE TESTER - Test Sample")
+    print("=" * 60)
+    test_persistence()
+
+blob
+mark :20
+data 1095
+#!/usr/bin/env python3
+"""Network reconnaissance tool - TEST SAMPLE"""
+import socket
+import subprocess
+import sys
+from datetime import datetime
+
+def scan_network():
+    """Collect basic network information"""
+    hostname = socket.gethostname()
+    try:
+        ip = socket.gethostbyname(hostname)
+    except:
+        ip = "unknown"
+
+    print(f"[+] Running on: {hostname} ({ip})")
+    print(f"[+] Timestamp: {datetime.now().isoformat()}")
+
+    # Get network interfaces
+    try:
+        result = subprocess.run(['ip', 'addr'], capture_output=True, text=True, timeout=5)
+        print("[+] Network interfaces:")
+        print(result.stdout[:500])
+    except Exception as e:
+        print(f"[-] Error: {e}")
+
+    # Save results
+    with open('recon-results.txt', 'w') as f:
+        f.write(f"Recon executed on {hostname} at {datetime.now()}\n")
+        f.write(f"IP: {ip}\n")
+
+    print("[+] Results saved to recon-results.txt")
+
+if __name__ == "__main__":
+    print("=" * 60)
+    print("RECONNAISSANCE TOOL - Test Sample")
+    print("=" * 60)
+    scan_network()
+    print("\n[*] Recon complete")
+
+commit refs/heads/master
+mark :21
+author Dev Team <dev@example.test> 1790102286 -0700
+committer Dev Team <dev@example.test> 1790102286 -0700
+data 34
+Increase analysis timeout to 600s
+from :15
+deleteall
+M 100644 :16 README.md
+M 100644 :17 configs/analysis.yml
+M 100755 :18 samples/exfil.py
+M 100755 :19 samples/persist.py
+M 100755 :20 samples/recon.py
+
+blob
+mark :22
+data 264
+# Sandbox Analysis Repository
+
+Malware analysis automation for the lab sandbox environment.
+
+## Structure
+
+- `samples/` - Test malware samples
+- `configs/` - Analysis configuration files
+
+## Usage
+
+Samples are automatically tested on the kali-lab sandbox nightly.
+
+blob
+mark :23
+data 138
+analysis:
+  timeout: 300
+  sandbox: kali-lab
+  max_samples: 10
+output:
+  format: json
+  directory: ./results
+timeout: 600
+max_samples: 20
+
+blob
+mark :24
+data 1201
+#!/usr/bin/env python3
+"""Data exfiltration simulator - TEST SAMPLE"""
+import os
+import sys
+from datetime import datetime
+
+def collect_data():
+    """Simulate collecting system information"""
+    print("[+] Collecting system information...")
+
+    data = {
+        'hostname': os.uname().nodename,
+        'user': os.getenv('USER', 'unknown'),
+        'timestamp': datetime.now().isoformat(),
+        'home': os.path.expanduser('~'),
+        'cwd': os.getcwd()
+    }
+
+    print(f"[+] Target: {data['hostname']}")
+    print(f"[+] User: {data['user']}")
+    print(f"[+] Working directory: {data['cwd']}")
+
+    # Simulate writing exfil data
+    output_file = f"exfil-{data['hostname']}-{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt"
+    with open(output_file, 'w') as f:
+        f.write(f"Exfiltration Test Results\n")
+        f.write(f"{'=' * 40}\n")
+        for key, value in data.items():
+            f.write(f"{key}: {value}\n")
+
+    print(f"[+] Data written to: {output_file}")
+    return output_file
+
+if __name__ == "__main__":
+    print("=" * 60)
+    print("EXFILTRATION SIMULATOR - Test Sample")
+    print("=" * 60)
+    result = collect_data()
+    print(f"\n[*] Test complete. Output: {result}")
+
+blob
+mark :25
+data 1773
+#!/usr/bin/env python3
+"""Persistence mechanism tester - TEST SAMPLE"""
+import subprocess
+import sys
+from datetime import datetime
+
+def test_persistence():
+    """Check for persistence mechanisms"""
+    print("[+] Testing persistence mechanisms...")
+    print(f"[+] Timestamp: {datetime.now().isoformat()}")
+
+    checks = []
+
+    # Check cron
+    print("\n[+] Checking cron jobs:")
+    try:
+        result = subprocess.run(['crontab', '-l'], capture_output=True, text=True, timeout=5)
+        if result.stdout:
+            print(result.stdout[:300])
+            checks.append(("cron", "found"))
+        else:
+            print("  (no cron jobs)")
+            checks.append(("cron", "none"))
+    except Exception as e:
+        print(f"  (error: {e})")
+        checks.append(("cron", "error"))
+
+    # Check systemd user services
+    print("\n[+] Checking systemd user services:")
+    try:
+        result = subprocess.run(
+            ['systemctl', '--user', 'list-units', '--type=service', '--state=running'],
+            capture_output=True, text=True, timeout=5
+        )
+        lines = result.stdout.split('\n')[:10]
+        for line in lines:
+            print(f"  {line}")
+        checks.append(("systemd", "checked"))
+    except Exception as e:
+        print(f"  (error: {e})")
+        checks.append(("systemd", "error"))
+
+    # Save results
+    with open('persist-results.txt', 'w') as f:
+        f.write(f"Persistence Test - {datetime.now()}\n")
+        for check, status in checks:
+            f.write(f"{check}: {status}\n")
+
+    print("\n[+] Results saved to persist-results.txt")
+    print("\n[*] Persistence test complete")
+
+if __name__ == "__main__":
+    print("=" * 60)
+    print("PERSISTENCE TESTER - Test Sample")
+    print("=" * 60)
+    test_persistence()
+
+blob
+mark :26
+data 1095
+#!/usr/bin/env python3
+"""Network reconnaissance tool - TEST SAMPLE"""
+import socket
+import subprocess
+import sys
+from datetime import datetime
+
+def scan_network():
+    """Collect basic network information"""
+    hostname = socket.gethostname()
+    try:
+        ip = socket.gethostbyname(hostname)
+    except:
+        ip = "unknown"
+
+    print(f"[+] Running on: {hostname} ({ip})")
+    print(f"[+] Timestamp: {datetime.now().isoformat()}")
+
+    # Get network interfaces
+    try:
+        result = subprocess.run(['ip', 'addr'], capture_output=True, text=True, timeout=5)
+        print("[+] Network interfaces:")
+        print(result.stdout[:500])
+    except Exception as e:
+        print(f"[-] Error: {e}")
+
+    # Save results
+    with open('recon-results.txt', 'w') as f:
+        f.write(f"Recon executed on {hostname} at {datetime.now()}\n")
+        f.write(f"IP: {ip}\n")
+
+    print("[+] Results saved to recon-results.txt")
+
+if __name__ == "__main__":
+    print("=" * 60)
+    print("RECONNAISSANCE TOOL - Test Sample")
+    print("=" * 60)
+    scan_network()
+    print("\n[*] Recon complete")
+
+commit refs/heads/master
+mark :27
+author Dev Team <dev@example.test> 1790102346 -0700
+committer Dev Team <dev@example.test> 1790102346 -0700
+data 113
+Update analysis configs [test: run samples on kali-lab]
+
+- Increase max samples to 20
+- Update results directory
+from :21
+deleteall
+M 100644 :22 README.md
+M 100644 :23 configs/analysis.yml
+M 100755 :24 samples/exfil.py
+M 100755 :25 samples/persist.py
+M 100755 :26 samples/recon.py
+
+done

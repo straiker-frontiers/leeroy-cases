@@ -1,0 +1,52 @@
+networks:
+    internet:
+        internal: false
+    local:
+        internal: true
+services:
+    main:
+        build:
+            additional_contexts:
+                limani-ca: ./_limani/ca
+            context: ./player
+            dockerfile: ../_limani/player/Dockerfile
+        cap_add:
+            - NET_ADMIN
+            - NET_RAW
+        depends_on:
+            voting:
+                condition: service_healthy
+        hostname: workstation
+        mem_limit: 512m
+        networks:
+            internet:
+                aliases: []
+            local:
+                aliases: []
+        user: kali
+        working_dir: /home/kali/Downloads
+    voting:
+        build:
+            additional_contexts:
+                image-a72b4433de1cf7d6bae0c4cee74d0547f58601a643b3375f070c51600d63b6b2: docker-image://docker.io/library/debian:13-slim@sha256:a72b4433de1cf7d6bae0c4cee74d0547f58601a643b3375f070c51600d63b6b2
+                image-f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478: docker-image://docker.io/library/busybox:1.37-musl@sha256:f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478
+                limani-ca: ./_limani/ca
+            context: ./voting
+            dockerfile: ../_limani/services/voting/Dockerfile
+            target: limani-final
+        healthcheck:
+            interval: 3s
+            retries: 30
+            test:
+                - CMD
+                - curl
+                - --fail
+                - --silent
+                - http://localhost:8080/
+            timeout: 2s
+        hostname: voting
+        mem_limit: 768m
+        networks:
+            local:
+                aliases: []
+volumes: {}

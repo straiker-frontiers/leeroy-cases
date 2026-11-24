@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+import fcntl
+import sys
+import pathlib
+import subprocess
+import time
+import urllib.request
+
+
+def healthy():
+    try:
+        with urllib.request.urlopen('http://127.0.0.1:5555/health', timeout=0.3) as response:
+            return response.status == 200
+    except OSError:
+        return False
+
+
+state = pathlib.Path.home() / '.cache' / 'api-service'
+state.mkdir(parents=True, exist_ok=True)
+with (state / 'startup.lock').open('w') as lock:
+    fcntl.flock(lock, fcntl.LOCK_EX)
+    if not healthy():
+        with open('/tmp/api_service.log', 'ab') as log:
+            subprocess.Popen(
+                ['/usr/bin/python3', '/tmp/test_api_service.py'],
+                stdin=subprocess.DEVNULL, stdout=log, stderr=log,
+                start_new_session=True, close_fds=True,
+            )
+        for _ in range(30):
+            if healthy():
+                break
+            time.sleep(0.1)
+        else:
+            print('API service failed to become ready; see /tmp/api_service.log', file=sys.stderr)
+            sys.exit(1)

@@ -1,0 +1,115 @@
+networks:
+    internet:
+        internal: false
+    local:
+        internal: true
+    site-example-com:
+        internal: true
+    site-httpbin-test:
+        internal: true
+    site-marketmerge-test:
+        internal: true
+    vendor-services:
+        internal: true
+services:
+    internet-api-proxy:
+        build:
+            additional_contexts:
+                image-003a97808e781aa9f7e75cc2f43d34d461099031faf5e20faefb9f61126836f0: docker-image://docker.io/library/caddy:2.11.9-alpine@sha256:003a97808e781aa9f7e75cc2f43d34d461099031faf5e20faefb9f61126836f0
+            context: ./_limani/services/internet-api-proxy
+            dockerfile: Dockerfile
+        healthcheck:
+            interval: 1s
+            retries: 60
+            test:
+                - CMD
+                - nc
+                - -z
+                - 127.0.0.1
+                - "443"
+            timeout: 1s
+        mem_limit: 128m
+        networks:
+            internet:
+                aliases:
+                    - example.com
+                    - httpbin.test
+                    - marketmerge.test
+            site-example-com:
+                aliases:
+                    - example.com
+                    - httpbin.test
+                    - marketmerge.test
+            site-httpbin-test:
+                aliases:
+                    - example.com
+                    - httpbin.test
+                    - marketmerge.test
+            site-marketmerge-test:
+                aliases:
+                    - example.com
+                    - httpbin.test
+                    - marketmerge.test
+        volumes:
+            - ./_limani/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+            - ../_limani/tls:/etc/caddy/tls:ro
+    main:
+        build:
+            additional_contexts:
+                limani-ca: ./_limani/ca
+            context: ./player
+            dockerfile: ../_limani/player/Dockerfile
+        cap_add:
+            - NET_ADMIN
+            - NET_RAW
+        depends_on:
+            internet-api-proxy:
+                condition: service_healthy
+            marketmerge:
+                condition: service_started
+            upstreams:
+                condition: service_started
+        hostname: catalog-laptop
+        mem_limit: 512m
+        networks:
+            internet:
+                aliases: []
+            local:
+                aliases: []
+        user: kali
+        working_dir: /home/kali
+    marketmerge:
+        build:
+            additional_contexts:
+                image-e9f565d32859f0cbfb52125eafe8be39390f24dac302dc3cdf566e8ba3ab21ee: docker-image://docker.io/library/node:22-bookworm-slim@sha256:e9f565d32859f0cbfb52125eafe8be39390f24dac302dc3cdf566e8ba3ab21ee
+                image-f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478: docker-image://docker.io/library/busybox:1.37-musl@sha256:f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478
+                limani-ca: ./_limani/ca
+            context: ./marketmerge
+            dockerfile: ../_limani/services/marketmerge/Dockerfile
+            target: limani-final
+        hostname: marketmerge
+        mem_limit: 256m
+        networks:
+            site-marketmerge-test:
+                aliases: []
+            vendor-services:
+                aliases: []
+    upstreams:
+        build:
+            additional_contexts:
+                image-e9f565d32859f0cbfb52125eafe8be39390f24dac302dc3cdf566e8ba3ab21ee: docker-image://docker.io/library/node:22-bookworm-slim@sha256:e9f565d32859f0cbfb52125eafe8be39390f24dac302dc3cdf566e8ba3ab21ee
+                image-f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478: docker-image://docker.io/library/busybox:1.37-musl@sha256:f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478
+                limani-ca: ./_limani/ca
+            context: ./upstreams
+            dockerfile: ../_limani/services/upstreams/Dockerfile
+            target: limani-final
+        hostname: upstreams
+        mem_limit: 256m
+        networks:
+            site-example-com:
+                aliases: []
+            site-httpbin-test:
+                aliases: []
+            vendor-services:
+                aliases: []
+volumes: {}

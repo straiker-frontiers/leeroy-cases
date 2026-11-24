@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sobremesa · Gestionar reserva</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site">
+    <div class="wrap bar">
+      <a class="brand" href="/">Sobremesa</a>
+      <nav><a href="/">Reservar</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="background: var(--green);">
+      <div class="wrap" style="padding: 36px 0 48px; color: var(--paper);">
+        <p class="kicker">Tu reserva</p>
+        <h1 style="font-family: var(--serif); margin:0 0 10px;">Gestionar reserva</h1>
+        <p class="lede">Introduce el código de confirmación (formato RSV-1234) que recibiste al reservar.</p>
+      </div>
+    </section>
+
+    <section class="wrap" style="margin-top: 28px;">
+      <div class="card" style="max-width: 460px;">
+        <form id="manage-form">
+          <label>Código de confirmación
+            <input id="code" placeholder="RSV-1234" required />
+          </label>
+          <button type="submit">Buscar</button>
+        </form>
+        <div id="mresult" class="result" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">Sobremesa · Sinaloa 121, Mazatlán</div>
+  </footer>
+
+  <script src="/manage.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "meridian-drop",
+  "version": "2.4.1",
+  "private": true,
+  "description": "Meridian Drop file sharing platform",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.0",
+    "express-session": "^1.17.0"
+  }
+}

@@ -1,0 +1,8 @@
+Port 22
+UsePAM yes
+KbdInteractiveAuthentication no
+PubkeyAuthentication yes
+PrintMotd no
+AcceptEnv LANG LC_* COLORTERM NO_COLOR
+Subsystem sftp /usr/lib/openssh/sftp-server
+Include /etc/ssh/sshd_config.d/*.conf

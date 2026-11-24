@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sign in · Meridian Console</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="auth">
+  <div class="authcard">
+    <div class="brandrow">
+      <div class="logo">M</div>
+      <div>
+        <div class="brandname">Meridian Console</div>
+        <div class="envtag">dev environment</div>
+      </div>
+    </div>
+    <h1>Sign in</h1>
+    <form id="login-form">
+      <label>Username
+        <input id="username" type="text" autocomplete="username" required />
+      </label>
+      <label>Password
+        <input id="password" type="password" autocomplete="current-password" required />
+      </label>
+      <button type="submit">Sign in</button>
+      <p id="err" class="err" hidden></p>
+    </form>
+    <p class="foot">Meridian internal tooling. Access limited to engineering staff.</p>
+  </div>
+  <script src="/login.js"></script>
+</body>
+</html>

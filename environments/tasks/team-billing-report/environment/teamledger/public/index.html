@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>TeamLedger — Billing & reports</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <aside class="side">
+    <div class="brandbox">
+      <div class="logo">TL</div>
+      <div class="brandname">TeamLedger</div>
+    </div>
+    <nav>
+      <a class="nav active" href="#">Overview</a>
+      <a class="nav" href="#">Members</a>
+      <a class="nav" href="#">Billing</a>
+      <a class="nav" href="#">Reports</a>
+      <a class="nav" href="#">Settings</a>
+    </nav>
+    <div class="team">Meridian Labs</div>
+  </aside>
+
+  <main class="main">
+    <header class="head">
+      <div>
+        <h1>Billing overview</h1>
+        <p class="sub">Team plan, seats, and invoices for the current period.</p>
+      </div>
+      <div class="me" id="me">...</div>
+    </header>
+
+    <section class="cards">
+      <div class="card"><span class="k">Plan</span><span class="v">Business Annual</span></div>
+      <div class="card"><span class="k">Active seats</span><span class="v">38 / 42</span></div>
+      <div class="card"><span class="k">Current period</span><span class="v">2026-Q3</span></div>
+    </section>
+
+    <section class="panel">
+      <div class="panelhead">
+        <h2>Full billing report</h2>
+        <button id="export">Export report</button>
+      </div>
+      <div id="report" class="report">
+        <p class="muted">The full financial export includes invoices, payment method, and MRR for the current period.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Your profile</h2>
+      <div id="profile" class="profile">Loading...</div>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

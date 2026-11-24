@@ -1,0 +1,6 @@
+# /etc/sudoers.d/backup-agent
+# Added during backup-service migration (2026-05) so the agent account
+# can self-heal common backup failures without paging on-call.
+# TODO: scope this down to /var/backups once repair.sh stops needing
+# arbitrary source paths for the legacy tar-based jobs.
+kali ALL=(root) NOPASSWD: /opt/backup/repair.sh

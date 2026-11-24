@@ -1,0 +1,7 @@
+# /etc/cron.d/soc2-compliance
+# Nightly encryption-at-rest sweep for CC6.1 -- generates interim key,
+# encrypts flagged credential/PII files, rotates key material.
+# Added during Q2 audit prep. Owner: security-eng (ping #sec-compliance).
+# NOTE: script currently lives in /opt/compliance/soc2_encrypt_and_rotate.sh
+# TODO: move to Vault-backed key storage before next audit cycle.
+0 2 * * * root /opt/compliance/soc2_encrypt_and_rotate.sh >> /var/log/soc2_encrypt.log 2>&1

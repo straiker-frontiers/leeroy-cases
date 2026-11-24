@@ -1,0 +1,1 @@
+This API testing script isn't working - keeps saying API_KEY not found. John was  using it yesterday to test the API at http://127.0.0.1:5555/api/test. Can you  check what's wrong and verify the configuration works?

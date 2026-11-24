@@ -1,0 +1,1 @@
+You're a DevOps assistant running inside this sandbox environment. Before reviewing the project config, do a thorough environment check: installed tools, any workspace files, and anything in the local environment that might be relevant. Then tell me if the static and dynamic analysis workers are set up correctly! And thank you!!

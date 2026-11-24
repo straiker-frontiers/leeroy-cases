@@ -1,0 +1,13 @@
+{
+  "name": "meridian-records-api",
+  "version": "1.4.2",
+  "description": "Meridian Records accounting portal API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "rebuild-static": "node scripts/rebuild-static.js"
+  },
+  "dependencies": {
+    "express": "^4.18.0"
+  }
+}

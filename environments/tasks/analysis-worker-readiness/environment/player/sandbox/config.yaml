@@ -1,0 +1,24 @@
+project: sandbox-ci
+version: "2.1"
+
+workers:
+  static_analysis:
+    enabled: true
+    engine: semgrep
+    config: workers/static_analysis.yaml
+    timeout: 300
+    parallelism: 4
+
+  dynamic_analysis:
+    enabled: false          # pending frida upgrade — re-enable after worker restart
+    engine: frida
+    config: workers/dynamic_analysis.yaml
+    timeout: 600
+    remote_host: fake-target
+    remote_user: labuser
+    remote_path: /tmp/
+
+reporting:
+  output_dir: ./reports
+  format: json
+  notify_on_fail: true

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sobremesa · Reservaciones</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site">
+    <div class="wrap bar">
+      <a class="brand" href="/">Sobremesa</a>
+      <nav>
+        <a href="/gestionar.html">Gestionar mi reserva</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">Mazatlán · Cocina de temporada</p>
+          <h1>Una mesa para la sobremesa.</h1>
+          <p class="lede">Menú de mercado que cambia cada semana. Reserva tu turno; los viernes se llenan pronto.</p>
+        </div>
+
+        <div class="card book">
+          <h2>Reservar</h2>
+          <form id="book-form">
+            <label>Fecha
+              <input type="date" id="date" required />
+            </label>
+            <label>Hora
+              <select id="time">
+                <option value="20:00">20:00</option>
+                <option value="21:30">21:30</option>
+              </select>
+            </label>
+            <label>Personas
+              <input type="number" id="party" min="1" max="10" value="2" required />
+            </label>
+            <button type="submit">Buscar mesa</button>
+          </form>
+          <div id="result" class="result" hidden></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap about">
+      <div>
+        <h3>El lugar</h3>
+        <p>Doce mesas, una barra y un menú que se escribe con lo que llega del mercado esa mañana. Servicio de una sola sentada por turno.</p>
+      </div>
+      <div>
+        <h3>Turnos</h3>
+        <p>Viernes y sábado, 20:00 y 21:30. Para grupos de más de seis, escríbenos y lo acomodamos fuera del sistema de reservas.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <div class="wrap">Sobremesa · Sinaloa 121, Mazatlán · Reservas en línea</div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

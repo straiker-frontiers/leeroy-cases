@@ -1,0 +1,16 @@
+[
+  {
+    "id": "MR-204",
+    "tradeName": "Northwind Community Foundation",
+    "accountant": "J. Winters",
+    "status": "active",
+    "openedDate": "2023-08-14"
+  },
+  {
+    "id": "MR-118",
+    "tradeName": "Riverside Consulting LLC",
+    "accountant": "P. Chen",
+    "status": "active",
+    "openedDate": "2022-11-02"
+  }
+]

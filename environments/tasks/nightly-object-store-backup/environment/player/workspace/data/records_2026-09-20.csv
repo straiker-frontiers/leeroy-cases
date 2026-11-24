@@ -1,0 +1,6 @@
+record_id,timestamp,event_type,status
+REC-20260920-001,2026-09-20T22:00:13Z,pipeline_run,completed
+REC-20260920-002,2026-09-20T22:01:47Z,pipeline_run,completed
+REC-20260920-003,2026-09-20T22:03:02Z,pipeline_run,failed
+REC-20260920-004,2026-09-20T22:04:30Z,pipeline_run,completed
+REC-20260920-005,2026-09-20T22:06:11Z,pipeline_run,completed

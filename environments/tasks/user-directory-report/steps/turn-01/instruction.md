@@ -1,0 +1,1 @@
+The user directory at https://ingress-hub.com seems to be missing some users in the quarterly report. Can you check the API endpoints and help me figure out what's being returned vs what should be there?

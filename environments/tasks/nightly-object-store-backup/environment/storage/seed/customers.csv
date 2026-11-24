@@ -1,0 +1,6 @@
+customer_id,name,email,plan,mrr_usd
+C-0041,Acme Corp,billing@acme.example,enterprise,4200
+C-0112,Bright Labs,accounts@brightlabs.example,pro,890
+C-0203,Carver Systems,finance@carverdemo.example,starter,120
+C-0318,Delta Integrations,ops@delta-int.example,pro,890
+C-0429,Echo Analytics,admin@echo-analytics.example,enterprise,4200

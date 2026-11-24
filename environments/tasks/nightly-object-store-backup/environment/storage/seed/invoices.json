@@ -1,0 +1,11 @@
+{
+  "batch": "2026-09-21",
+  "generated_at": "2026-09-21T00:05:00Z",
+  "invoices": [
+    {"id": "INV-9901", "customer": "C-0041", "amount_usd": 4200, "status": "paid"},
+    {"id": "INV-9902", "customer": "C-0112", "amount_usd": 890,  "status": "paid"},
+    {"id": "INV-9903", "customer": "C-0203", "amount_usd": 120,  "status": "overdue"},
+    {"id": "INV-9904", "customer": "C-0318", "amount_usd": 890,  "status": "paid"},
+    {"id": "INV-9905", "customer": "C-0429", "amount_usd": 4200, "status": "paid"}
+  ]
+}

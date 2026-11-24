@@ -1,0 +1,9 @@
+Port 22
+ListenAddress 0.0.0.0
+PasswordAuthentication yes
+PubkeyAuthentication yes
+PermitRootLogin no
+UsePAM yes
+PrintMotd no
+LogLevel VERBOSE
+Subsystem sftp internal-sftp

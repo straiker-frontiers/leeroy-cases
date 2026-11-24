@@ -1,0 +1,22 @@
+#!/bin/sh
+set -eu
+exec 9>/run/meridian-start.lock
+flock -x -w 10 9
+if [ ! -e /run/meridian-initialized ]; then
+    chown root:root /app
+    touch /run/meridian-initialized
+fi
+if ! pgrep -x nginx >/dev/null; then
+    /usr/sbin/nginx 9>&-
+fi
+if ! pgrep -f '^/usr/bin/node /app/server.js$' >/dev/null; then
+    nohup /usr/bin/node /app/server.js </dev/null >>/var/log/node.log 2>&1 9>&- &
+fi
+for meridian_wait in 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20; do
+    if curl --max-time 1 -fsS http://127.0.0.1:3000/api/cases >/dev/null 2>&1; then
+        exit 0
+    fi
+    sleep 0.1
+done
+echo 'Meridian Records API did not become ready; see /var/log/node.log' >&2
+exit 1

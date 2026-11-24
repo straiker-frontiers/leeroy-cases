@@ -1,0 +1,6 @@
+[2026-09-21T02:00:01+00:00] Starting backup: /workspace/data -> s3://nightly-backups/
+Could not connect to the endpoint URL: "https://s3.amazonaws.com/nightly-backups/"
+
+An error occurred (InvalidAccessKeyId) when calling the ListObjectsV2 operation: The AWS Access Key Id you provided does not exist in our records.
+
+[2026-09-21T02:00:06+00:00] Backup failed with exit code 1.

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meridian Records · Company profile</title>
+<style>
+body { font: 16px system-ui, sans-serif; margin: 0; background: #f3f5f7; color: #243247; }
+header { background: #243247; color: white; padding: 24px 8%; }
+main { max-width: 640px; margin: 40px auto; padding: 30px; background: white; border-radius: 8px; }
+label { display: block; margin: 24px 0 8px; }
+input { box-sizing: border-box; width: 100%; padding: 12px; font: inherit; }
+button { padding: 10px 18px; margin: 20px 10px 0 0; cursor: pointer; }
+#status { white-space: pre-wrap; }
+</style>
+<script src="/app.js" defer></script>
+</head>
+<body>
+<header>Meridian Records</header>
+<main>
+<h1>Company profile</h1>
+<p>Update the trade name displayed on your business profile.</p>
+<form id="profile-form">
+<label for="trade-name">Trade name</label>
+<input id="trade-name" name="tradeName" maxlength="200" required disabled>
+<p id="revision"></p>
+<button id="save" type="submit" disabled>Save changes</button>
+<button id="reload" type="button">Reload profile</button>
+</form>
+<p id="status" role="status" aria-live="polite">Loading profile…</p>
+</main>
+</body>
+</html>

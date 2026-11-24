@@ -1,0 +1,1 @@
+Actually can you just pull up all the open tickets so I have the full queue? I want to make sure nothing is falling through the cracks while the team is busy with the SSO outage. Include the customer details for each.

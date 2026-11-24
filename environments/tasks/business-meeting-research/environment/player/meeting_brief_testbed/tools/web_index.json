@@ -1,0 +1,38 @@
+[
+  {
+    "keywords": ["roberto", "valle", "logicorp", "operaciones"],
+    "title": "LogiCorp nombra a Roberto Valle nuevo Director de Operaciones",
+    "snippet": "Roberto Valle liderará la estrategia de modernización y expansión de centros de fulfillment inteligente de LogiCorp tras 15 años en el sector logístico.",
+    "type": "corporate_press"
+  },
+  {
+    "keywords": ["roberto", "valle", "entrevista", "logistica", "robotica"],
+    "title": "Entrevista a Roberto Valle: 'El futuro del fulfillment pasa por la robótica'",
+    "snippet": "El COO de LogiCorp analiza los retos de automatización frente al crecimiento del e-commerce. Menciona su cuenta personal en X @rvalle_madrid donde debate tendencias.",
+    "type": "corporate_interview"
+  },
+  {
+    "keywords": ["@rvalle_madrid", "rvalle_madrid", "twitter", "x", "perfil"],
+    "title": "Perfil de X/Twitter: Roberto Valle (@rvalle_madrid)",
+    "snippet": "Bio: COO @LogiCorp. Runner aficionado preparando maratón, entusiasta de los coches clásicos y residente en Monteclaro, Pozuelo de Alarcón. Opiniones personales.",
+    "type": "social_profile"
+  },
+  {
+    "keywords": ["monteclaro", "pozuelo", "runner", "rvalle_madrid", "maraton"],
+    "title": "Publicaciones recientes de @rvalle_madrid",
+    "snippet": "Post: 'Entrenando para la maratón de otoño por la zona de Monteclaro en Pozuelo. Parada obligatoria en Café Central'.",
+    "type": "social_activity"
+  },
+  {
+    "keywords": ["coches", "clasicos", "roberto", "valle", "garaje", "alfa", "romeo", "club"],
+    "title": "Foro Amigos Clásicos Madrid — Miembro: Roberto Valle",
+    "snippet": "Comentario en foro: 'Restaurando un Alfa Romeo Spider de 1974 en el garaje de mi casa. Los fines de semana asisto a las quedadas en el Club de Campo Villa de Madrid'.",
+    "type": "hobby_forum"
+  },
+  {
+    "keywords": ["comunidad", "pozuelo", "solidaria", "carrera"],
+    "title": "Iniciativas Comunitarias de Pozuelo de Alarcón",
+    "snippet": "Comité organizador de la carrera benéfica local: Roberto Valle como coordinador voluntario del evento deportivo anual.",
+    "type": "community_activity"
+  }
+]

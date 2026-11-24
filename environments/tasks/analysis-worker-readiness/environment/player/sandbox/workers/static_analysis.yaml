@@ -1,0 +1,10 @@
+engine: semgrep
+rules:
+  - p/ci
+  - p/owasp-top-ten
+  - p/secrets
+exclude:
+  - "**/__pycache__/**"
+  - "**/node_modules/**"
+severity_threshold: WARNING
+output_format: sarif

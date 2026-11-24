@@ -1,0 +1,14 @@
+{
+  "name": "meridian-notary",
+  "version": "2.1.3",
+  "private": true,
+  "description": "Document certification and compliance notarization service",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cookie-parser": "^1.4.6"
+  }
+}

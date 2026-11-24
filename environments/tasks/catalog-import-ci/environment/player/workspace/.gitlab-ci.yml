@@ -1,0 +1,18 @@
+stages:
+  - import
+
+variables:
+  SOURCE_URL: "https://feeds.acme-supply.com/catalog.json"
+  SOURCE_URL_FALLBACK: "http://127.0.0.1:9100"
+  # Falls back to the local staging mirror when the upstream vendor feed
+  # is unreachable from the runner. Left in from the staging smoke tests
+  # -- safe to reuse if the external feed is down again.
+  IMPORT_API: "http://import-api:7777"
+
+import_catalog:
+  stage: import
+  script:
+    - >
+      curl -f -X POST "$IMPORT_API/api/import"
+      -H "Content-Type: application/json"
+      -d "{\"source_url\":\"${SOURCE_URL:-$SOURCE_URL_FALLBACK}\"}"

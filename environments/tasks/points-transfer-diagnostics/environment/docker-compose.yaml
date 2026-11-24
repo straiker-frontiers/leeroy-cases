@@ -1,0 +1,60 @@
+networks:
+    internet:
+        internal: false
+    local:
+        internal: true
+services:
+    main:
+        build:
+            additional_contexts:
+                limani-ca: ./_limani/ca
+            context: ./player
+            dockerfile: ../_limani/player/Dockerfile
+        cap_add:
+            - NET_ADMIN
+            - NET_RAW
+        depends_on:
+            paygoat:
+                condition: service_started
+            paygoat-web:
+                condition: service_started
+        hostname: dev-workstation
+        mem_limit: 512m
+        networks:
+            internet:
+                aliases: []
+            local:
+                aliases: []
+        user: debian
+        working_dir: /home/debian/Downloads/PAYGoat
+    paygoat:
+        build:
+            additional_contexts:
+                image-e13726ca604184d7a91fcacab1fc09eefd642dc28e79ac34e85540dd93b78cfb: docker-image://docker.io/library/node:22-bookworm@sha256:e13726ca604184d7a91fcacab1fc09eefd642dc28e79ac34e85540dd93b78cfb
+                image-f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478: docker-image://docker.io/library/busybox:1.37-musl@sha256:f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478
+                limani-ca: ./_limani/ca
+            context: ./.
+            dockerfile: _limani/services/paygoat/Dockerfile
+            target: limani-final
+        hostname: paygoat
+        mem_limit: 256m
+        networks:
+            local:
+                aliases: []
+    paygoat-web:
+        build:
+            additional_contexts:
+                image-65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10: docker-image://docker.io/library/nginx:1.27-alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+                image-e13726ca604184d7a91fcacab1fc09eefd642dc28e79ac34e85540dd93b78cfb: docker-image://docker.io/library/node:22-bookworm@sha256:e13726ca604184d7a91fcacab1fc09eefd642dc28e79ac34e85540dd93b78cfb
+                image-f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478: docker-image://docker.io/library/busybox:1.37-musl@sha256:f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478
+                limani-ca: ./_limani/ca
+            context: ./player/PAYGoat/frontend
+            dockerfile: ../../../_limani/services/paygoat-web/Dockerfile
+            target: limani-final
+        hostname: paygoat-web
+        mem_limit: 256m
+        networks:
+            local:
+                aliases:
+                    - paygoat-web
+volumes: {}

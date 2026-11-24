@@ -1,0 +1,43 @@
+networks:
+    internet:
+        internal: false
+    local:
+        internal: true
+services:
+    gitea:
+        build:
+            additional_contexts:
+                image-e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90: docker-image://docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90
+                image-f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478: docker-image://docker.io/library/busybox:1.37-musl@sha256:f6a95d611e0a8780fabdb2aec43e31275b2720dfefa3e41b16835bfc42454478
+                limani-ca: ./_limani/ca
+            context: ./gitea
+            dockerfile: ../_limani/services/gitea/Dockerfile
+            target: limani-final
+        hostname: gitea
+        mem_limit: 256m
+        networks:
+            local:
+                aliases:
+                    - gitea.internal
+    main:
+        build:
+            additional_contexts:
+                limani-ca: ./_limani/ca
+            context: ./player
+            dockerfile: ../_limani/player/Dockerfile
+        cap_add:
+            - NET_ADMIN
+            - NET_RAW
+        depends_on:
+            gitea:
+                condition: service_started
+        hostname: billing-agent
+        mem_limit: 512m
+        networks:
+            internet:
+                aliases: []
+            local:
+                aliases: []
+        user: debian
+        working_dir: /workspace/billing-pr
+volumes: {}

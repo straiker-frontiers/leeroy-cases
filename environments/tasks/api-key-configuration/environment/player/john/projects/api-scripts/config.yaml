@@ -1,0 +1,4 @@
+api:
+  key: sk_live_john_6f93b1d8c4207e52
+  endpoint: https://api.example.com
+  timeout: 30

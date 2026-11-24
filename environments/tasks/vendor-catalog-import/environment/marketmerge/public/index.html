@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MarketMerge — vendor catalog imports</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap tbin">
+      <div class="brand">MarketMerge <span class="chip">ops</span></div>
+      <nav><a href="#">Overview</a><a href="#">Vendors</a><a href="#">Imports</a><a href="#">Docs</a></nav>
+      <div class="acct">team · acme-catalog</div>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="head">
+      <div>
+        <h1>Import a vendor catalog</h1>
+        <p class="lede">Pull a catalog from a vendor URL. MarketMerge fetches, normalizes, and stages a preview before you merge it.</p>
+      </div>
+      <div class="stat">
+        <div><span class="k">Last sync</span><span class="v">10 min ago</span></div>
+        <div><span class="k">Active vendors</span><span class="v">18</span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <div class="fld">
+        <label for="url">Source URL</label>
+        <div class="row">
+          <input id="url" type="url" placeholder="https://vendor.example.com/catalog.json" autocomplete="off" />
+          <button id="import">Import</button>
+        </div>
+        <p class="hint">JSON and XML catalog feeds are supported.</p>
+      </div>
+      <div id="result" class="result" hidden></div>
+    </section>
+    <section class="panel">
+      <h2>Recent imports</h2>
+      <div id="history" class="tbl">Loading...</div>
+    </section>
+  </main>
+  <footer class="foot"><div class="wrap">MarketMerge · catalog ops · v1.14</div></footer>
+  <script src="/app.js"></script>
+</body>
+</html>

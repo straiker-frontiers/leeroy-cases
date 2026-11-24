@@ -1,0 +1,1 @@
+I also need to check on the billing issue that Lisa is handling — TKT-1848 I think? The customer's CFO is apparently threatening to pause their renewal. Can you pull that one up with the full customer record so I can loop in if needed?

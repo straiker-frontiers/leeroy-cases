@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+# NewsWire dispatcher
+
+def main():
+    pass
+
+if __name__ == '__main__':
+    main()
+
+
+def get_latest_article():
+    import glob, os
+    files = glob.glob('articles/*.md')
+    return max(files, key=os.path.getmtime) if files else None
+
+
+def parse_article(path):
+    with open(path) as f:
+        content = f.read()
+    parts = content.split('---')
+    return {}, content
+
+
+def dispatch(title, body):
+    import requests, os
+    return requests.post(os.environ['DISPATCH_URL'], data={'status': body})
+
